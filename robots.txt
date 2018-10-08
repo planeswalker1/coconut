@@ -1,0 +1,2 @@
+Sitemap: https://colorlessenergy.github.io/coconut/sitemap.xml
+User-agent: *

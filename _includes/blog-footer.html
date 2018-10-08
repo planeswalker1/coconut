@@ -1,0 +1,31 @@
+<!-- for pagination -->
+
+
+<h2>pagination...</h2>
+<footer>
+  <article >
+    {% if include.prev %}
+    <div >
+      <a  href="{{ include.prev.url }}">
+        <div
+          style="background-image:url({{ site.baseurl }}/{{ include.prev.pic }})"></div>
+        <div>
+          <h3 >{{ include.prev.title }}</h3>
+        </div>
+      </a>
+    </div>
+    {% endif %}
+
+    {% if include.next %}
+    <div>
+      <a href="{{ include.next.url }}">
+        <div
+          style="background-image:url({{ site.baseurl }}/{{ include.next.pic }})"></div>
+        <div>
+          <h3>{{ include.next.title }}</h3>
+        </div>
+      </a>
+      </div>
+    {% endif %}
+  </article>
+</footer>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- seo -->
+    <meta name="description" content="javascript scope and the javascript engine. this article will explain how variables are seen in javascript and how javascript runs your code. Front End web development - coconut">
+
+    <meta property="og:title" content="Scope and JavaScript engine · Front End web development - coconut">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="javascript scope and the javascript engine. this article will explain how variables are seen in javascript and how javascript runs your code. Front End web development - coconut">
+    <title>
+      
+        Scope and JavaScript engine · Front End web development - coconut
+      
+    </title>
+
+
+    <meta itemprop="keywords" content="javascript" />
+    
+    <meta property="article:tag" content="javascript">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+    <main>
+      <div >
+  <nav>
+    <h3> <a href="/">home</a> </h3>
+    <ul>
+      <li> <a href="/courses">courses</a> </li>
+      <li> <a href="/blog">Blog</a> </li>
+      <li> <a href="/contact">contact</a> </li>
+    </ul>
+  </nav>
+</div>
+
+      <div class="contain-proj">
+  <section class="proj">
+    <div class="proj__contain">
+      <h1 id="scope-and-the-javascript-engine">scope and the JavaScript engine</h1>
+
+<p><img src="/images/javascript.png" alt="javascript" title="javascript" /></p>
+
+<h2 id="variable-lifetime">variable lifetime</h2>
+
+<p>It begins when it is declared and ends at the end of a function if is it in one, if it isn’t in a function it is at the end of global context which means when it the page is closed or refreshed</p>
+
+<h2 id="hoisting">hoisting</h2>
+
+<p>Hoisting means that all function definition and variable declarations are put to the top of the nearest scope.</p>
+
+<p>Function definition are hoisted, variable initialization are not.</p>
+
+<p>which means that function can be used anywhere in your code even before it is defined. only the variable declaration is hoisted not the value.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">greet</span><span class="p">()</span> <span class="c1">// hi</span>
+ <span class="kd">function</span> <span class="nx">greet</span><span class="p">()</span> <span class="p">{</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'hi'</span><span class="p">)</span>
+ <span class="p">}</span>
+</code></pre></div></div>
+
+<p>why does it do this?</p>
+
+<h2 id="the-javascript-engine">the javascript engine</h2>
+
+<p>before executing the code, the engine reads the entire file and will throw a syntax error if one is found.</p>
+
+<ul>
+  <li>any function will be saved in memory</li>
+  <li>variable initializations will not be run, but variable names will be declared</li>
+</ul>
+
+<h2 id="the-execution-and-creation-phase">the execution and creation phase</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+<span class="nx">greet</span><span class="p">();</span>
+
+<span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">greet</span><span class="p">()</span> <span class="p">{</span>
+ <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'hi'</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>creation and execution phase</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">// creation phase</span>
+<span class="kd">var</span> <span class="nx">i</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">greet</span><span class="p">()</span> <span class="p">{</span>
+ <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'hi'</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// execution phase</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+<span class="nx">greet</span><span class="p">();</span>
+
+<span class="nx">i</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="the-global-object">the global object</h2>
+
+<p>All variables and functions are parameters and methods on the global object.</p>
+
+<ul>
+  <li>browser global object is window</li>
+  <li>node global object is global</li>
+</ul>
+
+<h2 id="execution-context">execution context</h2>
+
+<p>Collections of exeuction context is known as the exeuction stacks.</p>
+
+<ul>
+  <li>stack, first in last out</li>
+  <li>queue, first in first out</li>
+</ul>
+
+<h2 id="lexical-environment">lexical environment</h2>
+
+<p>Determines how variable names are resolved, especially with nested functions. Child functions contain the scope of the parent function even if the parent function has returned.</p>
+
+<p>happy coding :)</p>
+
+<p>Any question feel free to contact me brianmunozdev@gmail.com</p>
+
+    </div>
+  </section>
+</div>
+
+
+  <!-- for pagination -->
+
+
+<h2>pagination...</h2>
+<footer>
+  <article >
+    
+    <div >
+      <a  href="/2018/09/20/prototypical-inheritance-in-javascript/">
+        <div
+          style="background-image:url(/images/javascript.png)"></div>
+        <div>
+          <h3 >prototypical inheritance</h3>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div>
+      <a href="/2018/09/28/primitives-vs-objects/">
+        <div
+          style="background-image:url(/images/javascript.png)"></div>
+        <div>
+          <h3>primitives vs objects.</h3>
+        </div>
+      </a>
+      </div>
+    
+  </article>
+</footer>
+
+    </main>
+  </body>
+</html>

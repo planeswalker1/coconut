@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- seo -->
+    <meta name="description" content="how to make a responsive navigation menu with a hamburger menu with html, css and javascript. Front End web development - coconut">
+
+    <meta property="og:title" content="how to make a responsive navigation menu · Front End web development - coconut">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="how to make a responsive navigation menu with a hamburger menu with html, css and javascript. Front End web development - coconut">
+    <title>
+      
+        how to make a responsive navigation menu · Front End web development - coconut
+      
+    </title>
+
+
+    <meta itemprop="keywords" content="html,javascript,css,responsive web" />
+    
+    <meta property="article:tag" content="html">
+    
+    <meta property="article:tag" content="javascript">
+    
+    <meta property="article:tag" content="css">
+    
+    <meta property="article:tag" content="responsive web">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+    <main>
+      <div >
+  <nav>
+    <h3> <a href="/">home</a> </h3>
+    <ul>
+      <li> <a href="/courses">courses</a> </li>
+      <li> <a href="/blog">Blog</a> </li>
+      <li> <a href="/contact">contact</a> </li>
+    </ul>
+  </nav>
+</div>
+
+      <div class="contain-proj">
+  <section class="proj">
+    <div class="proj__contain">
+      <h1 id="how-to-make-a-responsive-navigation-menu-with-a-hamburger-menu">How to make a responsive navigation menu with a hamburger menu</h1>
+
+<p><img src="/images/responsive-nav.png" alt="nav" title="nav" /></p>
+
+<h2 id="what-is-a-responsive-navigation-menu">What is a responsive navigation menu</h2>
+
+<p>A responsive navigation menu usually comes with a hamburger menu to show or hide the responsive navigation menu. a harmbuger menu shows up on a page when it has become smaller and shows or hides other links on the page. when clicking or tapping on the hamburger menu, a small window should show up on the screen listing other links.</p>
+
+<p>You can see a example here: <a href="https://colorlessenergy.github.io/kube/">kube</a></p>
+
+<p>If you want to mess with the code that will be built in this blog, there is a working example on <a href="https://codepen.io/brianmunoz/pen/VGvvdZ">codepen</a>.</p>
+
+<h2 id="when-should-you-use-a-responsive-navigation-menu">When should you use a responsive navigation menu</h2>
+
+<p>You could use it all the time but sometimes it does look better just having the links showing instead of them being hidden from the user. I recommend to use the responsive navigation menu only when you have more than 4 links.</p>
+
+<h2 id="the-html-for-the-nav">The HTML for the nav</h2>
+
+<p>We need a svg to make the usual apperance of the responsive hamburger menu. HTML makes it really easy to make small drawings with svg.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;svg</span> <span class="na">viewBox=</span><span class="s">"0 0 26 17"</span> <span class="na">width=</span><span class="s">"30px"</span> <span class="na">height=</span><span class="s">"100%"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;rect</span> <span class="na">x=</span><span class="s">"3"</span> <span class="na">width=</span><span class="s">"20px"</span> <span class="na">height=</span><span class="s">"3px"</span><span class="nt">&gt;&lt;/rect&gt;</span>
+  <span class="nt">&lt;rect</span> <span class="na">y=</span><span class="s">"7"</span> <span class="na">width=</span><span class="s">"26px"</span> <span class="na">height=</span><span class="s">"3px"</span><span class="nt">&gt;&lt;/rect&gt;</span>
+  <span class="nt">&lt;rect</span> <span class="na">x=</span><span class="s">"3"</span> <span class="na">y=</span><span class="s">"14"</span> <span class="na">width=</span><span class="s">"20px"</span> <span class="na">height=</span><span class="s">"3px"</span><span class="nt">&gt;&lt;/rect&gt;</span>
+<span class="nt">&lt;/svg&gt;</span>
+</code></pre></div></div>
+
+<p>It will look like this!</p>
+
+<svg viewBox="0 0 26 17" width="30px" height="100%">
+  <rect x="3" width="20px" height="3px"></rect>
+  <rect y="7" width="26px" height="3px"></rect>
+  <rect x="3" y="14" width="20px" height="3px"></rect>
+</svg>
+
+<p>Now lets make it do an animation when it get clicked. We will need HTML, CSS and JavaScript for this.</p>
+
+<p>the HTML</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;svg</span> <span class="na">id=</span><span class="s">"menu-hamburger"</span> <span class="na">viewBox=</span><span class="s">"0 0 26 17"</span> <span class="na">width=</span><span class="s">"30px"</span> <span class="na">height=</span><span class="s">"100%"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;rect</span> <span class="na">class=</span><span class="s">"hamburger-menu__rect1"</span> <span class="na">x=</span><span class="s">"3"</span> <span class="na">width=</span><span class="s">"20px"</span> <span class="na">height=</span><span class="s">"3px"</span><span class="nt">&gt;&lt;/rect&gt;</span>
+  <span class="nt">&lt;rect</span> <span class="na">class=</span><span class="s">"hamburger-menu__rect2"</span> <span class="na">y=</span><span class="s">"7"</span> <span class="na">width=</span><span class="s">"26px"</span> <span class="na">height=</span><span class="s">"3px"</span><span class="nt">&gt;&lt;/rect&gt;</span>
+  <span class="nt">&lt;rect</span> <span class="na">class=</span><span class="s">"hamburger-menu__rect3"</span> <span class="na">x=</span><span class="s">"3"</span> <span class="na">y=</span><span class="s">"14"</span> <span class="na">width=</span><span class="s">"20px"</span> <span class="na">height=</span><span class="s">"3px"</span><span class="nt">&gt;&lt;/rect&gt;</span>
+<span class="nt">&lt;/svg&gt;</span>
+</code></pre></div></div>
+
+<p>I gave each rect element in the svg a class.</p>
+
+<p>the CSS</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* give all the rects a transition for smooth animation */</span>
+<span class="nf">#menu-hamburger</span> <span class="nt">rect</span> <span class="p">{</span>
+  <span class="nl">transition</span><span class="p">:</span> <span class="n">all</span> <span class="m">0.5s</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* gave rects a transition only when the parent of the rect has the class of animate */</span>
+
+<span class="nc">.animate</span> <span class="nc">.hamburger-menu__rect1</span> <span class="p">{</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">rotate</span><span class="p">(</span><span class="m">35deg</span><span class="p">)</span> <span class="n">translate</span><span class="p">(</span><span class="m">2px</span><span class="p">,</span> <span class="m">-2px</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nc">.animate</span> <span class="nc">.hamburger-menu__rect3</span> <span class="p">{</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">rotate</span><span class="p">(</span><span class="m">-35deg</span><span class="p">)</span> <span class="n">translate</span><span class="p">(</span><span class="m">-7px</span><span class="p">,</span> <span class="m">-2px</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c">/*  gave the second rect opacity of 0 only when the parent has the class of animate */</span>
+<span class="nc">.animate</span> <span class="nc">.hamburger-menu__rect2</span> <span class="p">{</span>
+  <span class="nl">opacity</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>what was added:</p>
+
+<ul>
+  <li>rects
+    <ul>
+      <li>transition for smooth animation</li>
+      <li>first and third rect were given a transform</li>
+      <li>second rect will have a opacity of 0</li>
+    </ul>
+  </li>
+  <li>we will give it the class of animate with JavaScript which will trigger the animation</li>
+  <li>these styles will only work when they are nested inside a element with the class of animate</li>
+</ul>
+
+<p>longer explanation</p>
+
+<p>I gave all the rects nested in the svg with the id of menu-hamburger a transition so the animation is smooth. I also gave the first rect and third rect a transform and the second rect a opacity of 0. I also made the styles only work when it is nested inside a element with a class of animate which is the svg. We will give the svg (hamburger menu) a class of animate with JavaScript. By doing this it will trigger the animations on the hamburger menu.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// this is the hamburger menu</span>
+<span class="kd">let</span> <span class="nx">menuHamburger</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#menu-hamburger'</span><span class="p">);</span>
+
+<span class="c1">// when clicking on the hamburger menu give the svg / hamburger menu a class of animate or remove it if it already has the class of animate</span>
+<span class="nx">menuHamburger</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">menuHamburger</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">toggle</span><span class="p">(</span><span class="s1">'animate'</span><span class="p">);</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>what was added:</p>
+
+<ul>
+  <li>stored the svg (hamburger menu) in a variable</li>
+  <li>add event listener to the hamburger menu
+    <ul>
+      <li>gave a class to the hamburger menu when it is clicked</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Now we have a working hamburger menu. Click or tap on it to see the Animation.</p>
+
+<svg id="menu-hamburger" viewBox="0 0 26 17" width="30px" height="100%">
+  <rect class="hamburger-menu__rect1" x="3" width="20px" height="3px"></rect>
+  <rect class="hamburger-menu__rect2" y="7" width="26px" height="3px"></rect>
+  <rect class="hamburger-menu__rect3" x="3" y="14" width="20px" height="3px"></rect>
+</svg>
+
+<script>
+let menuHamburger = document.querySelector('#menu-hamburger');
+
+// when clicking on the hamburger menu give the svg / hamburgermenu a class of animate
+menuHamburger.addEventListener('click', function () {
+  menuHamburger.classList.toggle('animate');
+});
+</script>
+
+<style>
+#menu-hamburger rect {
+  transition: all 0.5s;
+}
+
+.animate .hamburger-menu__rect1 {
+  transform: rotate(35deg) translate(2px, -2px);
+}
+
+.animate .hamburger-menu__rect3 {
+  transform: rotate(-35deg) translate(-7px, -2px);
+}
+
+.animate .hamburger-menu__rect2 {
+  opacity: 0;
+}
+</style>
+
+<p>Now that we have the main functionality of the responsive nav, we will make it look like the one on <a href="https://codepen.io/brianmunoz/pen/VGvvdZ">codepen</a>.</p>
+
+<p>We will need to add more HTML, CSS and JavaScript.</p>
+
+<p>For the HTML we will put the hamburger menu inside a nav element and inside the nav element we will also put a heading. We will also include another div for the menu that shows up when the hamburger menu is clicked.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;nav&gt;</span>
+  <span class="c">&lt;!-- add this title --&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>title<span class="nt">&lt;/h1&gt;</span>
+
+  <span class="c">&lt;!-- moved the hamburger menu inside this nav element  --&gt;</span>
+  <span class="nt">&lt;svg</span> <span class="na">id=</span><span class="s">"menu-hamburger"</span> <span class="na">viewBox=</span><span class="s">"0 0 26 17"</span> <span class="na">width=</span><span class="s">"30px"</span> <span class="na">height=</span><span class="s">"100%"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;rect</span> <span class="na">class=</span><span class="s">"hamburger-menu__rect1"</span> <span class="na">x=</span><span class="s">"3"</span> <span class="na">width=</span><span class="s">"20px"</span> <span class="na">height=</span><span class="s">"3px"</span><span class="nt">&gt;&lt;/rect&gt;</span>
+    <span class="nt">&lt;rect</span> <span class="na">class=</span><span class="s">"hamburger-menu__rect2"</span> <span class="na">y=</span><span class="s">"7"</span> <span class="na">width=</span><span class="s">"26px"</span> <span class="na">height=</span><span class="s">"3px"</span><span class="nt">&gt;&lt;/rect&gt;</span>
+    <span class="nt">&lt;rect</span> <span class="na">class=</span><span class="s">"hamburger-menu__rect3"</span> <span class="na">x=</span><span class="s">"3"</span> <span class="na">y=</span><span class="s">"14"</span> <span class="na">width=</span><span class="s">"20px"</span> <span class="na">height=</span><span class="s">"3px"</span><span class="nt">&gt;&lt;/rect&gt;</span>
+  <span class="nt">&lt;/svg&gt;</span>
+
+  <span class="c">&lt;!--
+     these links are moved away from the screen and
+     it will be moved back once someone clicks on the hamburger menu
+   --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"responsive-nav"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ul&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Contact<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+</code></pre></div></div>
+<p>what was added:</p>
+
+<ul>
+  <li>add a nav element</li>
+  <li>inside nav
+    <ul>
+      <li>heading tag</li>
+      <li>hamburger menu</li>
+      <li>div for the menu that shows up when hamburger menu is clicked</li>
+    </ul>
+  </li>
+</ul>
+
+<p>For the css we are going to add styles to make the nav look nice and add styles to the responsive navigation menu that moves away from the screen and back when clicking on the hamburger menu.</p>
+
+<p>CSS</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c">/* use flex to add space around the element and vertically center them */</span>
+<span class="nt">nav</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">align-items</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="n">space-around</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/*
+  hides the menu that shows up on the screen when clicking on the hamburger menu.
+  Styles for the responsive menu to make it look nice.
+*/</span>
+
+<span class="nc">.responsive-nav</span> <span class="p">{</span>
+  <span class="nl">position</span><span class="p">:</span> <span class="nb">fixed</span><span class="p">;</span>
+  <span class="nl">right</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">top</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.6</span><span class="p">);</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">translateX</span><span class="p">(</span><span class="m">100%</span><span class="p">);</span>
+  <span class="nl">transition</span><span class="p">:</span> <span class="n">transform</span> <span class="m">0.5s</span> <span class="n">ease</span><span class="p">;</span>
+
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">align-items</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+<span class="p">}</span>
+
+ <span class="c">/* styles to make the responsive menu look better   */</span>
+
+<span class="nc">.responsive-nav</span> <span class="nt">ul</span> <span class="p">{</span>
+  <span class="nl">list-style-type</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.responsive-nav</span> <span class="nt">ul</span> <span class="nt">li</span> <span class="nt">a</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">21px</span><span class="p">;</span>
+  <span class="nl">letter-spacing</span><span class="p">:</span> <span class="m">1px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.responsive-nav__open</span> <span class="p">{</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">translateX</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c">/* give the hamburger menu styles  */</span>
+
+<span class="nf">#menu-hamburger</span> <span class="p">{</span>
+  <span class="nl">cursor</span><span class="p">:</span> <span class="nb">pointer</span><span class="p">;</span>
+  <span class="nl">z-index</span><span class="p">:</span> <span class="m">2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* give all the rects a transition */</span>
+
+
+<span class="nf">#menu-hamburger</span> <span class="nt">rect</span> <span class="p">{</span>
+  <span class="nl">transition</span><span class="p">:</span> <span class="n">all</span> <span class="m">0.5s</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/*
+  css to animate the responsive hamburger menu
+  only when it is nested inside a element with
+  the class of animate
+*/</span>
+
+<span class="nc">.animate</span> <span class="nc">.hamburger-menu__rect1</span> <span class="p">{</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">rotate</span><span class="p">(</span><span class="m">35deg</span><span class="p">)</span> <span class="n">translate</span><span class="p">(</span><span class="m">2px</span><span class="p">,</span> <span class="m">-2px</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nc">.animate</span> <span class="nc">.hamburger-menu__rect3</span> <span class="p">{</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">rotate</span><span class="p">(</span><span class="m">-35deg</span><span class="p">)</span> <span class="n">translate</span><span class="p">(</span><span class="m">-7px</span><span class="p">,</span> <span class="m">-2px</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nc">.animate</span> <span class="nc">.hamburger-menu__rect2</span> <span class="p">{</span>
+  <span class="nl">opacity</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>what was added:</p>
+
+<ul>
+  <li>vertically center and gave space around text inside nav</li>
+  <li>style the responsive navigation and moved it away from the users view</li>
+  <li>gave all the rects a transition for smooth animations</li>
+  <li>set a transform on each rect when the parent (svg) has a class of animate</li>
+</ul>
+
+<p>For JavaScript the only difference is storing the responsive nav that has the all the links in a variable and toggle a class on the responsve nav when it gets clicked or tapped to see show or hide the responsive nav.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">menuHamburger</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#menu-hamburger'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">responsiveNav</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.responsive-nav'</span><span class="p">);</span>
+
+<span class="nx">menuHamburger</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">menuHamburger</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">toggle</span><span class="p">(</span><span class="s1">'animate'</span><span class="p">);</span>
+  <span class="nx">responsiveNav</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">toggle</span><span class="p">(</span><span class="s1">'responsive-nav__open'</span><span class="p">)</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>what was added:</p>
+
+<ul>
+  <li>stored the hidden nav inside a variable</li>
+  <li>when the hamburger menu is clicked give the responsive nav a class to show it</li>
+</ul>
+
+<p>You can view this on <a href="https://codepen.io/brianmunoz/pen/VGvvdZ">codepen</a></p>
+
+<p>happy coding :)</p>
+
+    </div>
+  </section>
+</div>
+
+
+  <!-- for pagination -->
+
+
+<h2>pagination...</h2>
+<footer>
+  <article >
+    
+    <div >
+      <a  href="/2018/08/20/the-concept-of-DRY-dont-repeat-yourself/">
+        <div
+          style="background-image:url(/images/sandwich.png)"></div>
+        <div>
+          <h3 >the concept of dry, don't repeat yourself</h3>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div>
+      <a href="/2018/08/27/what-is-array-sort-in-javascript/">
+        <div
+          style="background-image:url(/images/soap.jpg)"></div>
+        <div>
+          <h3>What is array sort in JavaScript</h3>
+        </div>
+      </a>
+      </div>
+    
+  </article>
+</footer>
+
+    </main>
+  </body>
+</html>

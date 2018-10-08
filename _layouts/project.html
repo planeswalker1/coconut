@@ -1,0 +1,16 @@
+---
+layout: default
+title: blog
+---
+
+<div class="contain-proj">
+  <section class="proj">
+    <div class="proj__contain">
+      {{ content }}
+    </div>
+  </section>
+</div>
+
+{% unless page.url contains "project" %}
+  {% include blog-footer.html prev=page.previous next=page.next %}
+{% endunless %}
