@@ -1,10 +1,12 @@
 /* header styles */
-.header--home .nav a {
+.header--home .nav a,
+.header--contact .nav a {
   text-decoration: none;
   color: #fff;
 }
 
-.header--home .nav a:hover {
+.header--home .nav a:hover,
+.header--contact .nav a:hover {
   text-decoration: underline;
   color: rgba(255,255,255,0.7);
 }
