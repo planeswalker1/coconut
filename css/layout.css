@@ -4,7 +4,8 @@
 }
 
 /* header styles */
-.header--home {
+.header--home,
+.header--contact {
   background: #00B4DB;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -13,6 +14,20 @@
   height: 500px;
   text-align: center;
   color: #fff;
+}
+
+.header--contact {
+  -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 75%, 50% 75%, 0 75%, 0 0);
+  clip-path: polygon(50% 0%, 100% 0, 100% 75%, 50% 75%, 0 75%, 0 0);
+}
+
+.header__contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 0;
 }
 
 .nav {
