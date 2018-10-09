@@ -1,4 +1,6 @@
-baseurl: '/coconut'
+baseurl: /coconut
+exclude: ['README.md', '.gitignore']
+permalink: pretty
+
 description: coconut web docs provides information about HTML, CSS and JavaScript.
 title: Front End web development - coconut
-permalink: pretty

@@ -3,25 +3,31 @@ layout: default
 priority: 1.0
 ---
 
-<div >
-  <!-- <img src="" alt=""> -->
-  <h2 >coconut</h2>
-  <h2 >Front-End Web Developer</h2>
-</div>
+<!-- header -->
+<header class="header--home">
+  {% include nav.html %}
+  <!-- logo -->
+  <img class="logo" src="{{ site.baseurl }}/images/logo.svg" alt="Photo of a cartoon frankestein">
+  <h2>Front-End Web Development</h2>
+  <p>HTML, CSS, JS... <br> Web Tutorials</p>
+</header>
 
-<ul >
-  {% for post in site.posts %}
-  <li >
-    <div >
-      <a href="{{ site.baseurl }}{{ post.url }}">
-        <img src="{{ site.baseurl }}/{{ post.pic }}" alt="{{ post.title }}">
-      </a>
-    </div>
-    <div >
-      <h3 > <a  href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> </h3>
-      <p >{{ post.meta }} <a  href="{{ site.baseurl }}{{ post.url }}">read more</a>
-      </p>
-    </div>
-  </li>
-  {% endfor %}
-</ul>
+<!-- blog posts -->
+<main class="main--home">
+  <ul>
+    {% for post in site.posts %}
+    <li>
+      <div>
+        <a href="{{ site.baseurl }}{{ post.url }}">
+          <img src="{{ site.baseurl }}/{{ post.pic }}" alt="{{ post.title }}">
+        </a>
+      </div>
+      <div>
+        <h3> <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> </h3>
+        <p>{{ post.meta }} <a href="{{ site.baseurl }}{{ post.url }}">read more</a>
+        </p>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</main>
