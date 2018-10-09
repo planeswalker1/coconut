@@ -15,17 +15,17 @@ changefreq: weekly
 </p>
 
 <section>
-  <ul>
+  <ul class="posts1">
     {% for post in site.posts %}
-    <li>
-      <div>
+    <li class="post1">
+      <!-- <div>
         <a href="{{ site.baseurl }}{{ post.url }}">
         <img src="{{ site.baseurl }}/{{ post.pic }}" alt="{{ post.title }}">
         </a>
-      </div>
+      </div> -->
       <div>
-        <h3> <a  href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> </h3>
-        <p>{{ post.meta }}  <a  href="{{ site.baseurl }}{{ post.url }}">read more</a> </p>
+        <h3> <a class="post1__link" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> </h3>
+        <!-- <p>{{ post.meta }}  <a  href="{{ site.baseurl }}{{ post.url }}">read more</a> </p> -->
       </div>
     </li>
     {% endfor %}
