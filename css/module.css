@@ -11,6 +11,10 @@
   color: rgba(255,255,255,0.7);
 }
 
+.nav {
+  background: linear-gradient(to right, #0083B0, #00B4DB);
+}
+
 .nav__home {
   margin: 1em 30px 1em 30px;
 }
@@ -97,6 +101,22 @@
   transform: translateY(-2px);
 }
 
+/* styles for individual post */
+.proj__contain {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.proj h1 {
+  color: #00b4db;
+  font-size: 42px;
+  text-align: center;
+}
+
+.proj p {
+  font-size: 22px;
+}
+
 @media screen and (max-width: 961px) {
   .post {
     width: 100%;
@@ -113,6 +133,11 @@
 
   .posts1 {
     flex-direction: column;
+  }
+
+  /* styles for individual post */
+  .proj p {
+    font-size: 20px;
   }
 }
 
