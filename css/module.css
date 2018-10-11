@@ -81,14 +81,12 @@
 }
 
 .blogs-heading__title {
-  text-align: center;
   color: #0083b0;
   font-weight: 300;
 }
 
 .blogs-heading__img {
   width: 200px;
-  text-align: center;
 }
 
 /* pagination */
