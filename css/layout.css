@@ -34,8 +34,12 @@
 /* nav styles */
 .nav {
   display: flex;
-  width: 100%;
   align-items: center;
+  margin: 0 auto;
+  /* to fix weird bottom spacing */
+  margin-bottom: -1px;
+  max-width: 1360px;
+  width: 100%;
 }
 
 .nav__list {
