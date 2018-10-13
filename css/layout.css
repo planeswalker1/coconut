@@ -79,12 +79,6 @@
     flex-direction: column;
   }
 
-  /* styles for individual post */
-  .proj p {
-    font-size: 20px;
-  }
-
-
   .blog-pagination {
     flex-direction: column;
   }

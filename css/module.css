@@ -143,6 +143,7 @@
   color: #ff9800;
   margin: 57px 0 25px 0;
   font-weight: 300;
+  font-size: 30px;
 
   /* for the line next to it to stretch it all the way to the end */
   display: flex;
@@ -152,7 +153,7 @@
   content: " ";
   height: 3px;
   position: relative;
-  margin: 24px 2px 0 3px;
+  margin: 30px 2px 0 3px;
   flex-grow: 1;
   border-radius: 2px;
   background: linear-gradient(to right, #ff9800, #ffedd2);
@@ -160,9 +161,57 @@
   left: 0;
 }
 
+.proj h3 {
+  color: #00728f;
+  font-size: 27px;
+  font-weight: 300;
+  margin: 40px 0 21px 0;
+}
+
 .proj p {
   color: #555;
   font-size: 22px;
+}
+
+.proj ul {
+  list-style-type: disc;
+}
+
+.proj ul, .proj ol {
+  padding: 0;
+  margin: 0 0 20px 20px;
+  color: #555;
+}
+
+.proj ul li, .proj ul li {
+  margin-bottom: 15px;
+  padding-bottom: 13px;
+  font-size: 22px;
+  border-bottom: 4px solid rgba(255, 237, 210, 0.3);
+}
+
+@media screen and (max-width: 850px) {
+  .proj__contain {
+    margin: 0 15px;
+  }
+
+  .proj h1 {
+    font-size: 26px;
+  }
+
+  .proj h2 {
+    font-size: 24px;
+  }
+
+  .proj h2::after {
+    margin: 24px 2px 0 3px;
+  }
+
+   /* styles for individual post */
+  .proj p, .proj ul {
+    font-size: 20px;
+  }
+
 }
 
 @keyframes rainbow {

@@ -2,7 +2,14 @@
 p.highlight__file-desc {
   font-size: 17px;
   margin-bottom: 8px;
-  text-align: left;
+  text-align: right;
+}
+
+.highlight__code {
+  background-color: rgba(236, 48, 48, 0.1);
+  padding: 5px 7px 0;
+  border-bottom: 2px solid rgba(236, 48, 48, 0.3);
+  border-radius: 4px;
 }
 
 
@@ -150,5 +157,5 @@ p > img {
 }
 
 pre.highlight {
-  overflow: scroll;
+  overflow: auto;
 }
