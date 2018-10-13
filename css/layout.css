@@ -59,6 +59,26 @@
   justify-content: center;
 }
 
+/* styles for link to social media  */
+
+.social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social__icon {
+  width: 30px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease-out,
+              transform 0.3s ease-out;
+}
+
+.social__icon:hover {
+  opacity: 1;
+  transform: translateY(-2px)
+}
+
 .responsive-nav {
   position: fixed;
   right: 0;

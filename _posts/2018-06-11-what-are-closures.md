@@ -4,12 +4,9 @@ title: what are closures
 date:  "2018-06-11 4:47 -0700"
 meta: A explanation on what closures are in javascript. Closures in JavaScript is the most common feature used.
 pic: images/raindrop.jpg
-tags: ["javascript", "programming"]
+tags: ["javascript"]
+author: ["Brian Munoz", "https://colorlessenergy.github.io/", "https://github.com/colorlessenergy"]
 ---
-
-# what are closures
-
-![a picture of a flower]({{ site.baseurl }}/images/raindrop.jpg "a picture of a flower")
 
 ## closures definition
 
