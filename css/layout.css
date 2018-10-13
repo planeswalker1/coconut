@@ -59,8 +59,73 @@
   justify-content: center;
 }
 
+.responsive-nav {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.6);
+  transform: translateX(100%);
+  transition: transform 0.5s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+ /* styles to make the responsive menu look better   */
+
+.responsive-nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.responsive-nav ul li {
+  margin-bottom: 16px;
+}
+
+.responsive-nav ul li a {
+  color: #fff;
+  font-size: 21px;
+  letter-spacing: 1px;
+}
+
+.responsive-nav__open {
+  transform: translateX(0)
+}
+
+/* give the hamburger menu styles  */
+
+#menu-hamburger {
+  cursor: pointer;
+  z-index: 4;
+  display: none;
+  fill: #fff;
+}
+
+/*  css to animate the responsive hamburger menu */
+
+#menu-hamburger rect {
+  transition: all 0.5s;
+}
+
+.animate .hamburger-menu__rect1 {
+  transform: rotate(35deg) translate(2px, -2px);
+}
+
+.animate .hamburger-menu__rect3 {
+  transform: rotate(-35deg) translate(-7px, -2px);
+}
+
+.animate .hamburger-menu__rect2 {
+  opacity: 0;
+}
+
 /* responsive styles */
-@media screen and (max-width: 961px) {
+@media screen and (max-width: 960px) {
+
   /* styles for individual post */
   .post {
     width: 100%;
@@ -89,23 +154,28 @@
   }
 }
 
-@media screen and (max-width: 960px) {
-  /* nav styles */
+@media screen and  (max-width: 600px) {
+   /* nav styles */
   .nav {
-    flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px;
   }
 
   .nav__home {
-    margin: 1em 0 0 0;
+    margin: 0;
   }
 
   .nav__list {
-    width: 100%;
+    display: none;
   }
 
-  .nav__list li {
-    margin: 10px 10px 0 0;
+   #menu-hamburger {
+    display: block;
+  }
+
+  .logo {
+    width: 180px;
   }
 }
 
@@ -115,7 +185,13 @@
     height: 400px;
   }
 
+  .header__title {
+    font-weight: 400;
+    line-height: 1.3;
+  }
+
   .logo {
+    margin: 0;
     width: 100px;
   }
 }
